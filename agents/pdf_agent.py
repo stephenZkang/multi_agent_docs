@@ -2,7 +2,7 @@ import os
 from core.vectordb import vectordb
 
 def extract_text_pypdf2(path):
-    from PyPDF2 import PdfReader
+    from pypdf import PdfReader
     reader = PdfReader(path)
     texts = []
     for page in reader.pages:

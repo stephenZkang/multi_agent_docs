@@ -19,9 +19,10 @@
 
 ## PDF 文档提取与分段优势
 
+
 本系统支持多种 PDF 文本提取模型：
 
-- **PyPDF2**：兼容性好，适合大多数标准 PDF。
+- **pypdf**：兼容性好，适合大多数标准 PDF。
 - **pdfplumber**：对复杂排版、表格型 PDF 支持更好。
 - **fitz (PyMuPDF)**：速度快，适合大文件和特殊格式。
 
@@ -98,27 +99,38 @@
 - Python 3.8+
 - faiss-cpu
 - sentence-transformers
-- PyPDF2
+- pypdf
 - pdfplumber
 - pymupdf
 - langgraph
 - langchain-core
 
 
+
 ## 单元测试
 
-所有 agent 均配有基础单元测试，测试文件位于 `tests/` 目录。
+所有 agent 和核心模块均配有基础单元测试：
 
-运行全部测试：
+- `tests/agents/` 目录：各 agent 的测试类
+- `tests/core/` 目录：核心模块（如 cache、logger、vectordb、gemini_client）的测试类
+
+运行所有 agent 测试：
 
 ```bash
-python -m unittest discover -s tests/agents/
+python -m unittest discover -s tests/agents
 ```
 
-你也可以单独运行某个 agent 的测试，例如：
+运行所有核心模块测试：
+
+```bash
+python -m unittest discover -s tests/core
+```
+
+你也可以单独运行某个测试文件，例如：
 
 ```bash
 python -m unittest tests/agents/test_weather_agent.py
+python -m unittest tests/core/test_cache.py
 ```
 
 
