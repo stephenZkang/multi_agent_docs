@@ -1,5 +1,8 @@
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import streamlit as st
-from main import graph
+from core.graph_builder import graph
 
 st.title("📄 多智能体 PDF 知识问答系统")
 

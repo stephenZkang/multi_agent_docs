@@ -50,7 +50,25 @@
     agents/                  # 各智能体模块
     core/                    # 向量库、缓存、模型API等核心工具
     ui/                      # 可选：前端或接口层
+    tests/                   # 各 agent 的单元测试
     ```
+
+
+## 单元测试
+
+所有 agent 均配有基础单元测试，测试文件位于 `tests/` 目录。
+
+运行全部测试：
+
+```bash
+python -m unittest discover -s tests/agents/
+```
+
+你也可以单独运行某个 agent 的测试，例如：
+
+```bash
+python -m unittest tests/agents/test_weather_agent.py
+```
 
 ## 快速开始
 
