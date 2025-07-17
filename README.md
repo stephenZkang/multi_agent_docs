@@ -72,6 +72,7 @@
    - 首次运行会自动解析 PDF 并构建向量库。
    - 控制台支持多轮问答。
 
+
 4. **Web UI 模式（推荐）**
 
    ```bash
@@ -79,6 +80,17 @@
    ```
 
    - 浏览器会自动弹出问答界面，输入问题即可获得答案。
+
+5. **后端 API 服务模式**
+
+   ```bash
+   uvicorn agents.qa_api:app --reload --port 8000
+   ```
+
+   - 启动后访问 http://localhost:8000/docs 查看接口文档。
+   - 主要接口：
+     - `POST /qa` 传入 JSON：`{"input": "你的问题", "template": "default"}`，返回问答结果。
+     - `GET /ping` 健康检查。
 
 ## 依赖说明
 
