@@ -1,0 +1,9 @@
+langchain
+langgraph
+streamlit
+faiss-cpu
+sentence-transformers
+PyPDF2
+pdfplumber
+pymupdf
+pickle-mixin
