@@ -1,3 +1,5 @@
+from dotenv import load_dotenv
+load_dotenv()
 from core.graph_builder import graph
 from agents import weather_agent
 
@@ -12,7 +14,7 @@ if __name__ == "__main__":
     pdf_model = get_env_or_default("PDF_MODEL", "pypdf2")
     pdf_segment = get_env_or_default("PDF_SEGMENT", "paragraph")
     pdf_length = get_env_or_default("PDF_SEGMENT_LENGTH", "200")
-    llm_provider = get_env_or_default("LLM_PROVIDER", "mock")
+    llm_provider = get_env_or_default("LLM_PROVIDER", "gemini")
     qa_template = get_env_or_default("QA_TEMPLATE", "default")
 
     logger.info(f"PDF解析模型: {pdf_model} | 分段策略: {pdf_segment} | 分段长度: {pdf_length}")
@@ -41,3 +43,4 @@ if __name__ == "__main__":
         })
         print("答案：", result.get("qa_result"))
         print("依据：\n", result.get("evidence"))
+        print("合规：\n", result.get("verified"))

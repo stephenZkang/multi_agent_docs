@@ -49,6 +49,7 @@
    main.py                  # 主流程入口
    requirements.txt         # 依赖包列表
    agents/                  # 各智能体模块
+   api/                     # 独立API接口（如qa_api）
    core/                    # 向量库、缓存、模型API等核心工具
    ui/                      # 可选：前端或接口层
    tests/                   # 各 agent 的单元测试
@@ -86,7 +87,7 @@
 5. **后端 API 服务模式**
 
    ```bash
-   uvicorn agents.qa_api:app --reload --port 8000
+   uvicorn api.qa_api:app --reload --port 8000
    ```
 
    - 启动后访问 http://localhost:8000/docs 查看接口文档。

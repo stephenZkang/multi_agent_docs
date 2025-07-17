@@ -45,16 +45,19 @@ class GeminiClient:
         )
         return response.choices[0].message.content.strip()
 
-    def call_gemini(self, prompt, model="gemini-pro"):
-        # 这里只做伪代码，实际可用 google.generativeai 包
-        # 你可以用 pip install google-generativeai
+    def call_gemini(self, prompt, model="models/gemini-2.0-flash"):
+        """
+        使用 Google Gemini 大模型进行推理。
+        默认模型为 models/gemini-2.0-flash，可根据实际可用模型名调整。
+        """
         try:
             import google.generativeai as genai
         except ImportError:
             raise ImportError("请先 pip install google-generativeai")
         genai.configure(api_key=self.gemini_api_key)
-        model = genai.GenerativeModel(model)
-        response = model.generate_content(prompt)
+        print("调用模型:", model)
+        model_obj = genai.GenerativeModel(model)
+        response = model_obj.generate_content(prompt)
         return response.text.strip()
 
     def call_ernie(self, prompt, model="ernie-bot-turbo"):

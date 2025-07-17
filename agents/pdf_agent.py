@@ -55,6 +55,7 @@ def run(input):
     model = input.get("model", "pypdf2")
     segment = input.get("segment", "paragraph")
     length = input.get("length", 200)
+    print(f"[PDF_AGENT DEBUG] input: {input}")
     pdf_folder = os.path.join(os.path.dirname(os.path.dirname(__file__)), "documents")
     extractors = {
         "pypdf2": extract_text_pypdf2,
@@ -74,4 +75,9 @@ def run(input):
                 for seg in segments:
                     if seg.strip():
                         vectordb.add_text(seg.strip(), source=f"{filename} - 第 {page_num+1} 页")
-    return {"status": f"所有 PDF 已处理并嵌入向量数据库，模型: {model}，分段策略: {segment}"}
+    return {
+        "status": f"所有 PDF 已处理并嵌入向量数据库，模型: {model}，分段策略: {segment}",
+        "input": input.get("input", ""),
+        "template": input.get("template", "default"),
+        "llm_provider": input.get("llm_provider", "gemini")
+    }
