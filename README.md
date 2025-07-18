@@ -153,6 +153,7 @@ python -m unittest tests/core/test_cache.py
 ## 📚 参考文档
 
 - [LangChain 官方文档](https://python.langchain.com/)
+- [LangGraph 官方文档](https://langchain-ai.github.io/langgraph/)
 - [FAISS 官方文档](https://faiss.ai/)
 - [Sentence Transformers](https://www.sbert.net/)
 - [PyPDF](https://pypdf.readthedocs.io/)
