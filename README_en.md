@@ -110,6 +110,16 @@ python -m unittest tests/agents/test_weather_agent.py
 python -m unittest tests/core/test_cache.py
 ```
 
+## 📋 TODO
+
+- Support real LLM API integration
+- Add Web UI
+- Multi-language support
+- More agent tasks
+- Integrate MCP (Multi-agent Collaboration Protocol) mechanism
+- Integrate Tools ecosystem
+- Integrate ACA (Agent Communication Architecture) and other mainstream multi-agent frameworks
+
 ## 🐳 Docker Deployment
 
 1. Build image:
@@ -167,7 +177,10 @@ python -m unittest tests/core/test_cache.py
 - [Vector Database Introduction & Practice (Zhihu, Chinese)](https://zhuanlan.zhihu.com/p/624073222)
 - [Document AI: Google Cloud Blog](https://cloud.google.com/blog/products/ai-machine-learning/introducing-document-ai)
 - [A Survey of Large Language Models](https://arxiv.org/abs/2303.18223)
-- [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401) 
+- [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401)
+- [MCP: Multi-agent Collaboration Protocol (arXiv)](https://arxiv.org/abs/2402.02421)
+- [Toolformer: Language Models Can Teach Themselves to Use Tools (arXiv)](https://arxiv.org/abs/2302.04761)
+- [ACA: Agent Communication Architecture (arXiv)](https://arxiv.org/abs/2305.15023)
 
 ### 📝 Prompt Engineering References & Papers
 
