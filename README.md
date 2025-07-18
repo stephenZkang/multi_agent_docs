@@ -150,4 +150,27 @@ python -m unittest tests/core/test_cache.py
 - 多语言支持
 - 更丰富的 Agent 任务
 
+## 📚 参考文档
+
+- [LangChain 官方文档](https://python.langchain.com/)
+- [FAISS 官方文档](https://faiss.ai/)
+- [Sentence Transformers](https://www.sbert.net/)
+- [PyPDF](https://pypdf.readthedocs.io/)
+- [pdfplumber](https://github.com/jsvine/pdfplumber)
+- [PyMuPDF (fitz)](https://pymupdf.readthedocs.io/)
+- [Streamlit](https://docs.streamlit.io/)
+- [FastAPI](https://fastapi.tiangolo.com/)
+- [Uvicorn](https://www.uvicorn.org/)
+- [Docker 官方文档](https://docs.docker.com/)
+
+### 📖 相关博客与论文
+
+- [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629)  
+- [Auto-GPT: An Autonomous GPT-4 Experiment](https://github.com/Significant-Gravitas/Auto-GPT)  
+- [LangChain 多智能体协作机制详解（知乎）](https://zhuanlan.zhihu.com/p/624073222)  
+- [向量数据库入门与实战（知乎）](https://zhuanlan.zhihu.com/p/624073222)  
+- [Document AI: Google Cloud Blog](https://cloud.google.com/blog/products/ai-machine-learning/introducing-document-ai)  
+- [A Survey of Large Language Models](https://arxiv.org/abs/2303.18223)  
+- [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401)
+
 
