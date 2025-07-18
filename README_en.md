@@ -168,3 +168,10 @@ python -m unittest tests/core/test_cache.py
 - [Document AI: Google Cloud Blog](https://cloud.google.com/blog/products/ai-machine-learning/introducing-document-ai)
 - [A Survey of Large Language Models](https://arxiv.org/abs/2303.18223)
 - [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401) 
+
+### 📝 Prompt Engineering References & Papers
+
+- [Prompt Engineering Guide](https://www.promptingguide.ai/)
+- [Prompt Engineering for Large Language Models (arXiv)](https://arxiv.org/abs/2302.11382)
+- [A Survey of Prompt Engineering (arXiv)](https://arxiv.org/abs/2301.13688)
+- [How to Prompt LLMs (OpenAI Cookbook)](https://cookbook.openai.com/examples/how_to_prompt) 

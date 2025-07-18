@@ -174,4 +174,11 @@ python -m unittest tests/core/test_cache.py
 - [A Survey of Large Language Models](https://arxiv.org/abs/2303.18223)  
 - [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401)
 
+### 📝 提示词工程相关文档与论文
+
+- [Prompt Engineering Guide](https://www.promptingguide.ai/)
+- [Prompt Engineering for Large Language Models (arXiv)](https://arxiv.org/abs/2302.11382)
+- [A Survey of Prompt Engineering (arXiv)](https://arxiv.org/abs/2301.13688)
+- [How to Prompt LLMs (OpenAI Cookbook)](https://cookbook.openai.com/examples/how_to_prompt)
+
 
