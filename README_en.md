@@ -174,4 +174,4 @@ python -m unittest tests/core/test_cache.py
 - [Prompt Engineering Guide](https://www.promptingguide.ai/)
 - [Prompt Engineering for Large Language Models (arXiv)](https://arxiv.org/abs/2302.11382)
 - [A Survey of Prompt Engineering (arXiv)](https://arxiv.org/abs/2301.13688)
-- [How to Prompt LLMs (OpenAI Cookbook)](https://cookbook.openai.com/examples/how_to_prompt) 
+- [How to Prompt LLMs (OpenAI Cookbook)](https://cookbook.openai.com/) 
