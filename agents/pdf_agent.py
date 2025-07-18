@@ -1,5 +1,7 @@
 import os
 from core.vectordb import vectordb
+import json
+import hashlib
 
 def extract_text_pypdf2(path):
     from pypdf import PdfReader
@@ -63,6 +65,21 @@ def segment_text(text, strategy="paragraph", length=200):
     else:
         return [text]
 
+CACHE_PATH = os.path.join(os.path.dirname(__file__), "pdf_status.cache")
+
+def get_pdf_status(pdf_folder):
+    status = {}
+    for filename in os.listdir(pdf_folder):
+        if filename.endswith(".pdf"):
+            path = os.path.join(pdf_folder, filename)
+            stat = os.stat(path)
+            status[filename] = stat.st_mtime
+    return status
+
+def status_hash(status):
+    # 生成唯一hash用于比较
+    return hashlib.md5(json.dumps(status, sort_keys=True).encode()).hexdigest()
+
 def run(input):
     """
     input: dict, 可选参数：
@@ -81,6 +98,25 @@ def run(input):
         "fitz": extract_text_fitz
     }
     extractor = extractors.get(model, extract_text_pypdf2)
+
+    # 检查PDF状态缓存
+    current_status = get_pdf_status(pdf_folder)
+    current_hash = status_hash(current_status)
+    cache_hash = None
+    if os.path.exists(CACHE_PATH):
+        with open(CACHE_PATH, "r", encoding="utf-8") as f:
+            cache_hash = f.read().strip()
+    if cache_hash == current_hash:
+        print("[PDF_AGENT] PDF未变化，跳过解析。")
+        return {
+            "status": "PDF未变化，未重新解析。",
+            "input": input.get("input", ""),
+            "template": input.get("template", "default"),
+            "llm_provider": input.get("llm_provider", "gemini")
+        }
+    # 有变化，清空向量库并重新解析
+    print("[PDF_AGENT] 检测到PDF有变化，重新解析并重建向量库。")
+    vectordb.clear()
     for filename in os.listdir(pdf_folder):
         if filename.endswith(".pdf"):
             path = os.path.join(pdf_folder, filename)
@@ -93,6 +129,9 @@ def run(input):
                 for seg in segments:
                     if seg.strip():
                         vectordb.add_text(seg.strip(), source=f"{filename} - 第 {page_num+1} 页")
+    # 更新缓存
+    with open(CACHE_PATH, "w", encoding="utf-8") as f:
+        f.write(current_hash)
     return {
         "status": f"所有 PDF 已处理并嵌入向量数据库，模型: {model}，分段策略: {segment}",
         "input": input.get("input", ""),
