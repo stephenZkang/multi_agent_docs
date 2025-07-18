@@ -65,7 +65,11 @@ def segment_text(text, strategy="paragraph", length=200):
     else:
         return [text]
 
-CACHE_PATH = os.path.join(os.path.dirname(__file__), "pdf_status.cache")
+# 保证data目录存在
+DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
+if not os.path.exists(DATA_DIR):
+    os.makedirs(DATA_DIR)
+CACHE_PATH = os.path.join(DATA_DIR, "pdf_status.cache")
 
 def get_pdf_status(pdf_folder):
     status = {}
