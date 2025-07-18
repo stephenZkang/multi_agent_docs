@@ -3,32 +3,50 @@ from core.vectordb import vectordb
 
 def extract_text_pypdf2(path):
     from pypdf import PdfReader
+    print(f"[extract_text_pypdf2] 开始解析: {path}")
     reader = PdfReader(path)
     texts = []
-    for page in reader.pages:
+    for i, page in enumerate(reader.pages):
+        print(f"[extract_text_pypdf2] 解析第{i+1}页: {page}")
         text = page.extract_text()
         if text:
+            print(f"[extract_text_pypdf2] 第{i+1}页提取文本长度: {len(text)}")
             texts.append(text)
+        else:
+            print(f"[extract_text_pypdf2] 第{i+1}页无文本")
+    print(f"[extract_text_pypdf2] 完成: 共{len(texts)}页有文本")
     return texts
 
 def extract_text_pdfplumber(path):
+    print(f"[extract_text_pdfplumber] 开始解析: {path}")
     import pdfplumber
     texts = []
     with pdfplumber.open(path) as pdf:
-        for page in pdf.pages:
+        for i, page in enumerate(pdf.pages):
+            print(f"[extract_text_pdfplumber] 解析第{i+1}页")
             text = page.extract_text()
             if text:
+                print(f"[extract_text_pdfplumber] 第{i+1}页提取文本长度: {len(text)}")
                 texts.append(text)
+            else:
+                print(f"[extract_text_pdfplumber] 第{i+1}页无文本")
+    print(f"[extract_text_pdfplumber] 完成: 共{len(texts)}页有文本")
     return texts
 
 def extract_text_fitz(path):
+    print(f"[extract_text_fitz] 开始解析: {path}")
     import fitz  # PyMuPDF
     doc = fitz.open(path)
     texts = []
-    for page in doc:
+    for i, page in enumerate(doc):
+        print(f"[extract_text_fitz] 解析第{i+1}页")
         text = page.get_text()
         if text:
+            print(f"[extract_text_fitz] 第{i+1}页提取文本长度: {len(text)}")
             texts.append(text)
+        else:
+            print(f"[extract_text_fitz] 第{i+1}页无文本")
+    print(f"[extract_text_fitz] 完成: 共{len(texts)}页有文本")
     return texts
 
 def segment_text(text, strategy="paragraph", length=200):

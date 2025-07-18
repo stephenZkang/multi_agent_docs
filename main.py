@@ -11,7 +11,7 @@ def get_env_or_default(key, default):
 
 if __name__ == "__main__":
     # 读取配置
-    pdf_model = get_env_or_default("PDF_MODEL", "pypdf2")
+    pdf_model = get_env_or_default("PDF_MODEL", "pdfplumber")
     pdf_segment = get_env_or_default("PDF_SEGMENT", "paragraph")
     pdf_length = get_env_or_default("PDF_SEGMENT_LENGTH", "200")
     llm_provider = get_env_or_default("LLM_PROVIDER", "gemini")

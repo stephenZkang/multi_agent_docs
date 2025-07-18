@@ -34,5 +34,5 @@ def run(input):
     prompt = prompt_template.replace("{context}", context).replace("{query}", query)
 
     answer = gemini_client.smart_call(prompt, "qa")
-    return {"qa_result": answer, "evidence": context, "template": template}
+    return {"input":query,"qa_result": answer, "evidence": context, "template": template}
 
