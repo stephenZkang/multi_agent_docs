@@ -16,17 +16,17 @@ class GraphBuilder:
             print(f"[translate_agent is true]...")
             return "translate_agent"
         else:
-            print(f"[verify_agent is true]...")
-            return "verify_agent"
+            print(f"[search_agent is true]...")
+            return "search_agent"
 
     def _build_graph(self):
         builder = StateGraph(dict)
         builder.add_node("pdf_agent", RunnableLambda(pdf_agent.run))
         builder.add_node("qa_agent", RunnableLambda(qa_agent.run))
-        # builder.add_node("search_agent", RunnableLambda(search_agent.run))
+        builder.add_node("translate_agent", RunnableLambda(translate_agent.run))
+        builder.add_node("search_agent", RunnableLambda(search_agent.run))
         # builder.add_node("summary_agent", RunnableLambda(summary_agent.run))
         # builder.add_node("writing_agent", RunnableLambda(writing_agent.run))
-        builder.add_node("translate_agent", RunnableLambda(translate_agent.run))
         builder.add_node("verify_agent", RunnableLambda(verify_agent.run))
         # builder.add_node("weather_agent", RunnableLambda(weather_agent.run))
 
@@ -42,7 +42,8 @@ class GraphBuilder:
         # qa_agent -> verify_agent（无翻译意图）
         # builder.add_conditional_edges("qa_agent", "verify_agent", condition=lambda state: not self._need_translate(state))
         # translate_agent -> verify_agent
-        builder.add_edge("translate_agent", "verify_agent")
+        builder.add_edge("translate_agent", "search_agent")
+        builder.add_edge("search_agent", "verify_agent")
         builder.add_edge("verify_agent", END)
 
         return builder.compile()
