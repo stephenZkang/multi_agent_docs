@@ -43,4 +43,5 @@ if __name__ == "__main__":
         })
         print("答案：", result.get("qa_result"))
         print("依据：\n", result.get("evidence"))
-        print("合规：\n", result.get("verified"))
+        print("总结：\n", result.get("summary"))
+        # print("合规：\n", result.get("verified"))
