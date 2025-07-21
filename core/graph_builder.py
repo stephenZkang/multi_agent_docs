@@ -1,11 +1,12 @@
 from langgraph.graph import StateGraph, END
+from langgraph.checkpoint.memory import InMemorySaver
 from langchain_core.runnables import RunnableLambda
 from agents import pdf_agent, qa_agent, search_agent, summary_agent, writing_agent, translate_agent, verify_agent, weather_agent
 
 class GraphBuilder:
     def __init__(self):
+        self.checkpointer = InMemorySaver()
         self.graph = self._build_graph()
-
 
     def _need_translate(self, state):
         query = state.get("input", "")
@@ -46,7 +47,8 @@ class GraphBuilder:
         builder.add_edge("summary_agent", "verify_agent")
         builder.add_edge("verify_agent", END)
 
-        return builder.compile()
+        # 集成内存记忆
+        return builder.compile(checkpointer=self.checkpointer)
 
     def get_graph(self):
         return self.graph

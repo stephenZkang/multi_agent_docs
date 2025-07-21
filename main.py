@@ -5,6 +5,7 @@ from agents import weather_agent
 
 import os
 from core.logger import logger
+import uuid
 
 def get_env_or_default(key, default):
     return os.environ.get(key, default)
@@ -32,6 +33,9 @@ if __name__ == "__main__":
             result = weather_agent.run({"city": city})
             print("天气：", result.get("weather_result"))
             continue
+
+        current_thread_id = str(uuid.uuid4()) 
+
         # 传递配置参数到各 agent
         result = graph.invoke({
             "input": question,
@@ -40,7 +44,15 @@ if __name__ == "__main__":
             "length": int(pdf_length),
             "template": qa_template,
             "llm_provider": llm_provider
+        },
+        config={
+            "configurable": {
+                "thread_id": current_thread_id, # 必须提供一个唯一的 thread_id
+                # "checkpoint_ns": "my_namespace", # 可选：命名空间，用于组织检查点
+                # "checkpoint_id": "latest" # 可选：指定要恢复的特定检查点ID，"latest"表示最新
+            }
         })
+
         print("答案：", result.get("qa_result"))
         print("依据：\n", result.get("evidence"))
         print("总结：\n", result.get("summary"))
