@@ -10,3 +10,4 @@ pickle-mixin
 
 fastapi
 uvicorn
+langgraph-checkpoint

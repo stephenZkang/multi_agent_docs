@@ -10,6 +10,7 @@ This project is a multi-agent document intelligence platform supporting PDF pars
   - Multi-task support: Not just Q&A, but also automatic summarization, business writing, translation, compliance checking, etc.
   - Easy to extend: Agents can be plugged, removed, or recombined to customize your own document workflow.
   - Structured output: Final results are structured dicts, suitable for frontend display or automation.
+- 🧠 **Multi-turn Conversation Memory**: The system uses InMemorySaver to automatically store and utilize conversation context, enabling seamless multi-turn Q&A without losing context.
 - 📄 **PDF Parsing**: Automatically batch-read PDF files from the `documents/` directory, extract text, and embed into a vector database.
 - 🔍 **Vector Search**: Efficient semantic retrieval based on FAISS and Sentence Transformers, with vector files stored in the `data/` directory.
 - 💬 **Intelligent Q&A and Summarization**: Q&A and summarization based on document content.
@@ -79,6 +80,7 @@ documents/               # PDF files
 - pymupdf
 - langchain
 - langgraph
+- langgraph-checkpoint  # For multi-turn conversation memory
 - langchain-core
 - streamlit
 - fastapi
