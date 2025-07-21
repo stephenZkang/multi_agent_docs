@@ -32,7 +32,6 @@ class GraphBuilder:
 
         builder.set_entry_point("pdf_agent")
         builder.add_edge("pdf_agent", "qa_agent")
-        # builder.add_edge("search_agent", "summary_agent")
         # builder.add_edge("summary_agent", "writing_agent")
         # builder.add_edge("writing_agent", "translate_agent")
         # builder.add_edge("translate_agent", "verify_agent")
