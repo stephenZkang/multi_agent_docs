@@ -1,0 +1,7 @@
+请将以下问题分解为若干个子任务，输出JSON数组，每个元素包含task和type字段：
+问题：{question}
+输出示例：
+[
+  {{"task": "检索相关文档", "type": "search"}},
+  {{"task": "生成摘要", "type": "summary"}}
+] 
