@@ -1,0 +1,4 @@
+请判断以下任务执行结果是否合格，只返回JSON：{"pass": true/false, "reason": "原因"}
+结果：{result}
+输出示例：
+{"pass": true, "reason": "结果合理"} 
