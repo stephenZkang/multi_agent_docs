@@ -149,11 +149,14 @@ python -m unittest tests/core/test_cache.py
 
 - 支持真实大模型 API 接入
 - 增加 Web UI
-- 多语言支持
-- 更丰富的 Agent 任务
 - 集成 MCP（Multi-agent Collaboration Protocol）机制
-- 集成 Tools 工具体系
 - 集成 ACA（Agent Communication Architecture）等主流多智能体框架
+- 产品级端到端能力
+- 引入 React Agent 架构（Agent根据反馈动态调整）
+- Tool Registry + Agent 自选工具机制
+- 加入 Memory 模块（跨任务持久上下文）
+- 引入 DAG 调度器（支持任务流编排）
+- 添加 Planner Agent（任务规划器）
 
 ## 📚 参考文档
 

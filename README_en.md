@@ -114,13 +114,19 @@ python -m unittest tests/core/test_cache.py
 
 ## 📋 TODO
 
-- Support real LLM API integration
-- Add Web UI
-- Multi-language support
-- More agent tasks
+Here is the English translation of your list:
+
+- Support integration with real large language model APIs
+- Add a web-based user interface
 - Integrate MCP (Multi-agent Collaboration Protocol) mechanism
-- Integrate Tools ecosystem
-- Integrate ACA (Agent Communication Architecture) and other mainstream multi-agent frameworks
+- Integrate mainstream multi-agent frameworks such as ACA (Agent Communication Architecture)
+- Provide end-to-end, production-level capabilities
+- Introduce React Agent architecture (agents dynamically adapt based on feedback)
+- Implement a Tool Registry with dynamic tool selection by agents
+- Add a Memory module for cross-task and persistent context
+- Introduce a DAG-based scheduler to support task flow orchestration
+- Add a Planner Agent for automated task decomposition and planning
+
 
 ## 🐳 Docker Deployment
 
